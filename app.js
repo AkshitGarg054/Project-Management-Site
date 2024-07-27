@@ -99,8 +99,10 @@ app.all("*", (req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-    console.log(err);
     let { statusCode = 500, message = "something went wrong ig" } = err;
+    if (statusCode === 404) {
+        return res.redirect("/signup");
+    }
     res.status(statusCode).render("pages/Error.ejs", { err });
 });
 
