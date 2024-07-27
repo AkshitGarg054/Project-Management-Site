@@ -106,3 +106,12 @@ body {
 .no-project {
     text-align: center;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        width: 580px;
+    }
+}

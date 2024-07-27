@@ -1,8 +1,18 @@
 <% layout("/layouts/boilerplate") %>
 
+<style>
+    .entire-page {
+        margin-left: 110px;
+        width: 400px;
+    }
+    h2 {
+        width: 210px;
+    }
+</style>
+
 <% if (projectsAvailable) { %>
     <h2 class="mt-4 text-center">YOUR PROJECTS </h2>
-    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 entire-page">
         <% allProjects.forEach(project => { %>
             <a href="/projects/<%= project._id %>" class="card-link"> 
                 <div class="card col mb-3" style="width:19rem">
