@@ -1,0 +1,57 @@
+<% layout("/layouts/boilerplate") %>
+<br><br><br><br>
+<style>
+    .outer-login-box {
+        display: flex;
+        justify-content: center;
+        margin-right: 160px;
+    }
+    .inside-login-box {
+        background-color: white;
+        border: 1px solid #ddd;
+        background-color: #96C2DB;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+    }
+    .inside-login-box h1 {
+        font-size: 2rem;
+        color: #333;
+    }
+    .form-control {
+        /* border-radius: 4px; */
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    }
+    .btn-success {
+        border: none;
+        border-radius: 4px;
+        padding: 10px 30px;
+        display: block;
+        margin: 0 auto;
+    }
+    .btn-success:hover {
+        background-color: #5dbea3;
+    }
+</style>
+
+<div class="row mt-5 outer-login-box">
+    <div class="col-12 col-md-8 offset-md-2 inside-login-box">
+        <h1 class="mb-4 text-center">LOGIN USER</h1>
+        <form method="POST" action="/login" novalidate class="needs-validation">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email: </label>
+                <input id="email" type="email" placeholder="Enter email" name="email" class="form-control" required/>
+                <div class="invalid-feedback">Enter a valid email</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password: </label>
+                <input id="password" type="password" placeholder="Enter password" name="password" class="form-control" required/>
+                <div class="invalid-feedback">Enter a valid password</div>
+            </div>
+            <button class="btn btn-success mt-4">Login</button>
+            <p class="mt-3 text-center">Don't have an account? <b><a href="/signup">Register Now!</a></b></p>
+        </form>
+    </div>
+</div>

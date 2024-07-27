@@ -1,0 +1,26 @@
+<% layout("/layouts/boilerplate") %>
+
+<% if (projectsAvailable) { %>
+    <h2 class="mt-4 text-center">YOUR PROJECTS </h2>
+    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+        <% allProjects.forEach(project => { %>
+            <a href="/projects/<%= project._id %>" class="card-link"> 
+                <div class="card col mb-3" style="width:19rem">
+                    <img src="<%= project.img.url %>" class="card-img-top" alt="project_thumbnail" style="height:17rem"/>
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                    <b><h5 class="card-text" style="text-align:center"><%= project.projectName %></h5></b>
+                    </div>
+                </div>
+            </a>
+        <% }) %>
+    </div>
+    <% } else { %>
+        <div class="no-project-container">
+            <div class="no-project">
+                <h1 class="mb-3">No Projects to Display!</h1>
+                <a href="/projects/new" style="text-decoration: none;"><h4>CLICK TO ADD A PROJECT</h4></a>
+            </div>
+        </div>
+<% } %>
+

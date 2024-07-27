@@ -1,0 +1,65 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+    .outer-edit-box {
+        display: flex;
+        justify-content: center;
+        margin-right: 160px;
+    }
+    .inside-edit-box {
+        background-color: white;
+        border: 1px solid #ddd;
+        background-color: #96C2DB;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+    }
+    .inside-edit-box h1 {
+        font-size: 2rem;
+        color: #333;
+    }
+    .form-control {
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    }
+    .btn-dark {
+        border: none;
+        border-radius: 4px;
+        padding: 10px 30px;
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+
+<div class="row mt-4 mb-5 outer-edit-box">
+    <div class="col-12 col-md-8 offset-md-2 inside-edit-box">
+        <h1 class="mb-4 text-center">EDIT THE PROJECT</h1>
+        <form method="POST" action="/projects/<%= idProject._id %>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="projectName" class="form-label">Project Name: </label>
+                <input placeholder="write your project name." class="form-control" value="<%= idProject.projectName %>" name="newP[projectName]" type="text" required/>
+                <div class="invalid-feedback">Enter a valid name.</div>
+            </div>
+            <div class="mb-3">
+                <label for="repoLink" class="form-label">GitHub Repository Link: </label>
+                <input placeholder="Paste your repo link" class="form-control" value="<%= idProject.repoLink %>" name="newP[repoLink]" type="text" required/>
+                <div class="invalid-feedback">Provide a valid link.</div>
+            </div>
+            <div class="mb-3">
+                Original Thumbnail: <br>
+                <img src="<%= idProject.img.url %>" class="col-3"/>
+            </div>
+            <div class="mb-3">
+                <label for="img" class="form-label">Upload New Thumbnail: </label>
+                <input placeholder="Paste your thumbnail link" class="form-control" name="newP[img]" type="file"/>
+            </div>
+            <div class="mb-4">
+                <label for="hostLink" class="form-label">Live Project Link: </label>
+                <input placeholder="Paste project link" class="form-control" value="<%= idProject.hostLink %>" name="newP[hostLink]" type="text" required/>
+                <div class="invalid-feedback">Provide a valid link.</div>
+            </div>
+            <button class="btn btn-dark">Save Changes</button>
+        </form>
+    </div>
+</div>

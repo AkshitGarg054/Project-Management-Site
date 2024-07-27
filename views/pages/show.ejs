@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row show-page">
+    <div class="col-5 mt-4">
+        <h1>Project Details:</h1>
+            <img src="<%= idProject.img.url %>" class="big-img" alt="project_img">
+    </div>
+    <div class="col-7 project-detail">
+        <h2> <b>PROJECT NAME: </b> <%= idProject.projectName %> </h2>
+        <br><br>
+        <div class="mb-3">
+            <h5 style="display:inline"><b>Checkout GitHub Repository: </b></h5>
+            <a href="<%= idProject.repoLink %>" target="_blank" rel="noopener noreferrer" class="link" style="font-size: larger;"> Click here </a>
+        </div>
+        <div class="mb-5">
+            <h5 style="display:inline"><b>View the Project Live at: </b></h5>
+            <a href="<%= idProject.hostLink %>" target="_blank" rel="noopener noreferrer" class="link" style="font-size: larger;"> Live </a>
+        </div>
+        <% if (user && user.type === 'Admin') { %>
+            <div class="btns">
+                <a href="/admin/users/<%= id %>/projects/<%= idProject._id %>/edit" class="btn btn-dark edit-btn">Edit</a>
+                <form method="POST" action="/projects/<%= idProject._id %>?_method=DELETE">
+                    <button class="btn btn-dark del-btn">Delete</button>
+                </form>
+            </div>
+        <% } else if (user && user.type === 'Student') { %>
+            <div class="btns">
+                <a href="/projects/<%= idProject._id %>/edit" class="btn btn-dark edit-btn">Edit</a>
+                <form method="POST" action="/projects/<%= idProject._id %>?_method=DELETE">
+                    <button class="btn btn-dark del-btn">Delete</button>
+                </form>
+            </div>
+        <% } %>
+    
+    </div>
+</div>
