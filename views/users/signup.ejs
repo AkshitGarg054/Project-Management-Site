@@ -77,7 +77,7 @@
                 </select>
                 <div class="invalid-feedback">Select a type</div>
             </div>
-            <div class="g-recaptcha" data-sitekey="6LdddRgqAAAAAA0Q69WkkLYeDZHGJWNmYTuR4gal"></div>
+            <div class="g-recaptcha" data-sitekey=<%= process.env.CAPTCHA_SITE_KEY %>></div>
             <button class="btn btn-success mt-4" id="signupButton" type="submit">SignUp</button>
             <p class="mt-3 text-center">Already have an account? <b><a href="/login">Login Here</a></b></p>
         </form>
